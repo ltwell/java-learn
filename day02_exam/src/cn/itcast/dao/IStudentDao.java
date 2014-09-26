@@ -1,27 +1,27 @@
-package cn.itcast.dao;
+ï»¿package cn.itcast.dao;
 
 import cn.itcast.domain.Student;
 
 public interface IStudentDao {
 
 	/**
-	 * Ìí¼ÓÑ§ÉúĞÅÏ¢µ½XMLÖĞ
+	 * æ·»åŠ å­¦ç”Ÿä¿¡æ¯åˆ°XMLä¸­
 	 * @param s
 	 * @return
 	 */
 	boolean createStudent(Student s);
 
 	/**
-	 * ¸ù¾İ×¼¿¼Ö¤ºÅ²éÑ¯Ñ§ÉúĞÅÏ¢
+	 * æ ¹æ®å‡†è€ƒè¯å·æŸ¥è¯¢å­¦ç”Ÿä¿¡æ¯
 	 * @param examid
-	 * @return Èç¹ûÑ§Éú²»´æÔÚ£¬·µ»Ønull
+	 * @return å¦‚æœå­¦ç”Ÿä¸å­˜åœ¨ï¼Œè¿”å›null
 	 */
 	Student findStudent(String examid);
 
 	/**
-	 * ¸ù¾İÑ§ÉúĞÕÃûÉ¾³ıÑ§Éú
+	 * æ ¹æ®å­¦ç”Ÿå§“ååˆ é™¤å­¦ç”Ÿ
 	 * @param name
-	 * @return Èç¹ûÈË²»´æÔÚÒ²·µ»Øfalse
+	 * @return å¦‚æœäººä¸å­˜åœ¨ä¹Ÿè¿”å›false
 	 */
 	boolean deleteStudent(String name);
 

@@ -1,4 +1,4 @@
-package cn.itcast.test;
+﻿package cn.itcast.test;
 
 import cn.itcast.dao.IStudentDao;
 import cn.itcast.dao.StudentDom4JDao;
@@ -23,8 +23,8 @@ public class StudentDom4JDaoTest {
 		Student s = new Student();
 		s.setExamid("438");
 		s.setIdcard("250");
-		s.setName("�Ű׳�");
-		s.setLocation("�ձ�");
+		s.setName("张白痴");
+		s.setLocation("日本");
 		s.setGrade(100);
 		boolean b = dao.createStudent(s);
         Assert.assertTrue(b);
@@ -38,7 +38,7 @@ public class StudentDom4JDaoTest {
 	}
 	@Test
 	public void testDeleteStudent() {
-		boolean b = dao.deleteStudent("�Ű׳�");
+		boolean b = dao.deleteStudent("张白痴");
 		Assert.assertTrue(b);
 		
 	}

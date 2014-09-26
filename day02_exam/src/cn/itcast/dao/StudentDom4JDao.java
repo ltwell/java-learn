@@ -1,4 +1,4 @@
-package cn.itcast.dao;
+ï»¿package cn.itcast.dao;
 
 import java.util.List;
 
@@ -17,18 +17,18 @@ public class StudentDom4JDao implements IStudentDao{
 		boolean result = false;
 		
 		try{
-			//µÃµ½Document¶ÔÏó
+			//å¾—åˆ°Documentå¯¹è±¡
 			Document document = Dom4JUtil.getDocument();
-			//µÃµ½¸ùÔªËØ
+			//å¾—åˆ°æ ¹å…ƒç´ 
 			Element root = document.getRootElement();
-			//¼ÓÊı¾İ¼´¿É<student>
+			//åŠ æ•°æ®å³å¯<student>
 			Element studentE = root.addElement("student")
 				.addAttribute("examid", s.getExamid())
 				.addAttribute("idcard", s.getIdcard());
 			studentE.addElement("name").setText(s.getName());
 			studentE.addElement("location").setText(s.getLocation());
 			studentE.addElement("grade").setText(s.getGrade()+"");
-			//Ğ´»ØXMLÎÄµµ
+			//å†™å›XMLæ–‡æ¡£
 			Dom4JUtil.write2xml(document);
 			result = true;
 		}catch(Exception e){
@@ -42,17 +42,17 @@ public class StudentDom4JDao implements IStudentDao{
 	public boolean deleteStudent(String name) {
 		boolean result = false;
 		try{
-			//µÃµ½Document
+			//å¾—åˆ°Document
 			Document document = Dom4JUtil.getDocument();
-			//Ñ¡ÔñËùÓĞµÄnameÔªËØ
+			//é€‰æ‹©æ‰€æœ‰çš„nameå…ƒç´ 
 			List<Node> nodes = document.selectNodes("//name");
-			//±éÀú£ºÅĞ¶ÏÔªËØµÄÄÚÈİÊÇ·ñÓë²ÎÊıÒ»ÖÂ
+			//éå†ï¼šåˆ¤æ–­å…ƒç´ çš„å†…å®¹æ˜¯å¦ä¸å‚æ•°ä¸€è‡´
 			for(Node n:nodes){
 				if(n.getText().equals(name))
-			//ÓÃËûµÄÒ¯Ò¯É¾³ıËüµÄ°Ö°Ö
+			//ç”¨ä»–çš„çˆ·çˆ·åˆ é™¤å®ƒçš„çˆ¸çˆ¸
 					n.getParent().getParent().remove(n.getParent());
 			}
-			//Ğ´»ØXMLÎÄµµ
+			//å†™å›XMLæ–‡æ¡£
 			Dom4JUtil.write2xml(document);
 			result = true;
 		}catch(Exception e){

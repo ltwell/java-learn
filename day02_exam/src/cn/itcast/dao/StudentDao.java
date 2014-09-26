@@ -1,4 +1,4 @@
-package cn.itcast.dao;
+ï»¿package cn.itcast.dao;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -7,29 +7,29 @@ import org.w3c.dom.NodeList;
 
 import cn.itcast.domain.Student;
 import cn.itcast.util.DocumentUtil;
-//Òì³££ºÅ×µÄ»°£¬ÉÏ²ãÄÜ½â¾ö²ÅĞĞ
-//ÉÏÒ»²ãÈç¹û´¦Àí²»ÁË£¬×Ô¼º±ØĞë´¦Àí¡£
+//å¼‚å¸¸ï¼šæŠ›çš„è¯ï¼Œä¸Šå±‚èƒ½è§£å†³æ‰è¡Œ
+//ä¸Šä¸€å±‚å¦‚æœå¤„ç†ä¸äº†ï¼Œè‡ªå·±å¿…é¡»å¤„ç†ã€‚
 
 public class StudentDao implements IStudentDao {
 	/**
-	 * Ìí¼ÓÑ§ÉúĞÅÏ¢µ½XMLÖĞ
+	 * æ·»åŠ å­¦ç”Ÿä¿¡æ¯åˆ°XMLä¸­
 	 * @param s
 	 * @return
 	 */
 	public boolean createStudent(Student s){
 		System.out.println("JAXP");
-		//Ä¿±ê£ºÔÚ¸ùÔªËØexamÖĞÌí¼Óstudent×ÓÔªËØ
+		//ç›®æ ‡ï¼šåœ¨æ ¹å…ƒç´ examä¸­æ·»åŠ studentå­å…ƒç´ 
 		boolean result = false;
 		try {
 			Document document = DocumentUtil.getDocument();
-			//´´½¨name¡¢location¡¢gradeÔªËØ²¢ÉèÖÃÆäÖ÷ÌåÄÚÈİ
+			//åˆ›å»ºnameã€locationã€gradeå…ƒç´ å¹¶è®¾ç½®å…¶ä¸»ä½“å†…å®¹
 			Element nameE = document.createElement("name");
 			nameE.setTextContent(s.getName());
 			Element locationE = document.createElement("location");
 			locationE.setTextContent(s.getLocation());
 			Element gradeE = document.createElement("grade");
 			gradeE.setTextContent(s.getGrade()+"");
-			//´´½¨studentÔªËØ£¬²¢ÉèÖÃÆäÊôĞÔ
+			//åˆ›å»ºstudentå…ƒç´ ï¼Œå¹¶è®¾ç½®å…¶å±æ€§
 			Element studentE = document.createElement("student");
 			studentE.setAttribute("idcard", s.getIdcard());
 			studentE.setAttribute("examid", s.getExamid());//CTRL+ALT+ARROW
@@ -37,31 +37,31 @@ public class StudentDao implements IStudentDao {
 			studentE.appendChild(nameE);
 			studentE.appendChild(locationE);
 			studentE.appendChild(gradeE);
-			//µÃµ½examÔªËØ£¬°Ñstudent¹Ò½ÓÉÏÈ¥
+			//å¾—åˆ°examå…ƒç´ ï¼ŒæŠŠstudentæŒ‚æ¥ä¸Šå»
 			Node node = document.getElementsByTagName("exam").item(0);
 			node.appendChild(studentE);
-			//Ğ´»ØXMLÎÄ¼şÖĞ
+			//å†™å›XMLæ–‡ä»¶ä¸­
 			DocumentUtil.write2xml(document);
 			result = true;
 		} catch (Exception e) {
-			throw new RuntimeException(e);//Òì³£×ªÒå¡£Òì³£Á´
+			throw new RuntimeException(e);//å¼‚å¸¸è½¬ä¹‰ã€‚å¼‚å¸¸é“¾
 		}
 		return result;
 	}
 	/**
-	 * ¸ù¾İ×¼¿¼Ö¤ºÅ²éÑ¯Ñ§ÉúĞÅÏ¢
+	 * æ ¹æ®å‡†è€ƒè¯å·æŸ¥è¯¢å­¦ç”Ÿä¿¡æ¯
 	 * @param examid
-	 * @return Èç¹ûÑ§Éú²»´æÔÚ£¬·µ»Ønull
+	 * @return å¦‚æœå­¦ç”Ÿä¸å­˜åœ¨ï¼Œè¿”å›null
 	 */
 	public Student findStudent(String examid){
 		Student s = null;
 		
 		try{
-			//µÃµ½Document¶ÔÏó
+			//å¾—åˆ°Documentå¯¹è±¡
 			Document document = DocumentUtil.getDocument();
-			//µÃµ½ËùÓĞµÄstudentÔªËØ
+			//å¾—åˆ°æ‰€æœ‰çš„studentå…ƒç´ 
 			NodeList nl = document.getElementsByTagName("student");
-			//±éÀústudentÔªËØ£¬ÅĞ¶ÏËûµÄexamidÊôĞÔµÄÈ¡ÖµÊÇ·ñÓë²ÎÊıÆ¥Åä
+			//éå†studentå…ƒç´ ï¼Œåˆ¤æ–­ä»–çš„examidå±æ€§çš„å–å€¼æ˜¯å¦ä¸å‚æ•°åŒ¹é…
 			for(int i=0;i<nl.getLength();i++){
 				Node node = nl.item(i);
 //				if(node.getNodeType()==Node.ELEMENT_NODE){
@@ -69,9 +69,9 @@ public class StudentDao implements IStudentDao {
 				if(node instanceof Element){
 					Element e = (Element)node;
 					if(e.getAttribute("examid").equals(examid)){
-					//Èç¹ûÆ¥Åä£ºËµÃ÷ÕÒµ½ÁËÑ§Éú£»´´½¨Ñ§Éú¶ÔÏó
+					//å¦‚æœåŒ¹é…ï¼šè¯´æ˜æ‰¾åˆ°äº†å­¦ç”Ÿï¼›åˆ›å»ºå­¦ç”Ÿå¯¹è±¡
 						s = new Student();
-					//ÉèÖÃÑ§Éú¶ÔÏóµÄ¸÷¸öÊôĞÔÈ¡Öµ
+					//è®¾ç½®å­¦ç”Ÿå¯¹è±¡çš„å„ä¸ªå±æ€§å–å€¼
 						s.setExamid(examid);
 						s.setIdcard(e.getAttribute("idcard"));
 						s.setName(e.getElementsByTagName("name").item(0).getTextContent());
@@ -87,24 +87,24 @@ public class StudentDao implements IStudentDao {
 		return s;
 	}
 	/**
-	 * ¸ù¾İÑ§ÉúĞÕÃûÉ¾³ıÑ§Éú
+	 * æ ¹æ®å­¦ç”Ÿå§“ååˆ é™¤å­¦ç”Ÿ
 	 * @param name
-	 * @return Èç¹ûÈË²»´æÔÚÒ²·µ»Øfalse
+	 * @return å¦‚æœäººä¸å­˜åœ¨ä¹Ÿè¿”å›false
 	 */
 	public boolean deleteStudent(String name){
 		boolean result = false;
 		try{
-			//µÃµ½Document¶ÔÏó
+			//å¾—åˆ°Documentå¯¹è±¡
 			Document document = DocumentUtil.getDocument();
-			//µÃµ½ËùÓĞµÄnameÔªËØ
+			//å¾—åˆ°æ‰€æœ‰çš„nameå…ƒç´ 
 			NodeList nl = document.getElementsByTagName("name");
-			//±éÀúnameÔªËØ£¬ÅĞ¶ÏÆäÖ÷ÌåÄÚÈİÊÇ·ñÓë²ÎÊıÒ»ÖÂ
+			//éå†nameå…ƒç´ ï¼Œåˆ¤æ–­å…¶ä¸»ä½“å†…å®¹æ˜¯å¦ä¸å‚æ•°ä¸€è‡´
 			for(int i=0;i<nl.getLength();i++){
-				//Èç¹ûÒ»ÖÂ£ºÕÒµ½ËûµÄ°Ö°ÖµÄ°Ö°Ö£¬É¾³ıËüµÄ°Ö°Ö
+				//å¦‚æœä¸€è‡´ï¼šæ‰¾åˆ°ä»–çš„çˆ¸çˆ¸çš„çˆ¸çˆ¸ï¼Œåˆ é™¤å®ƒçš„çˆ¸çˆ¸
 				Node n = nl.item(i);
 				if(n.getTextContent().equals(name)){
 					n.getParentNode().getParentNode().removeChild(n.getParentNode());
-					//Ğ´»ØXMLÎÄµµ
+					//å†™å›XMLæ–‡æ¡£
 					DocumentUtil.write2xml(document);
 					result = true;
 					break;

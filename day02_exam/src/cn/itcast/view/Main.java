@@ -1,4 +1,4 @@
-package cn.itcast.view;
+ï»¿package cn.itcast.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,54 +15,54 @@ public class Main {
 		
 		try{
 			IStudentDao dao = new StudentDom4JDao();
-			System.out.println("a¡¢Ìí¼ÓÑ§Éú\tb¡¢É¾³ıÑ§Éú\tc¡¢²éÑ¯³É¼¨");
-			System.out.println("ÇëÊäÈë²Ù×÷ÀàĞÍ£º");
+			System.out.println("aã€æ·»åŠ å­¦ç”Ÿ\tbã€åˆ é™¤å­¦ç”Ÿ\tcã€æŸ¥è¯¢æˆç»©");
+			System.out.println("è¯·è¾“å…¥æ“ä½œç±»å‹ï¼š");
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			String operation = br.readLine();//¶ÁÈ¡ÓÃ»§ÊäÈëµÄ²Ù×÷ÀàĞÍ
+			String operation = br.readLine();//è¯»å–ç”¨æˆ·è¾“å…¥çš„æ“ä½œç±»å‹
 			if("a".equals(operation)){
-				//Ìí¼Ó²Ù×÷
+				//æ·»åŠ æ“ä½œ
 				Student s = addOperation(br);
 				boolean b = dao.createStudent(s);
 				if(b){
-					System.out.println("-----Ìí¼Ó³É¹¦-------");
+					System.out.println("-----æ·»åŠ æˆåŠŸ-------");
 				}else
-					System.out.println("¶Ô²»Æğ£¡Êı¾İÓĞÎó");
+					System.out.println("å¯¹ä¸èµ·ï¼æ•°æ®æœ‰è¯¯");
 			}else if("b".equals(operation)){
-				//É¾³ı²Ù×÷
-				System.out.println("ÇëÊäÈëÒªÉ¾³ıµÄÑ§ÉúĞÕÃû£º");
+				//åˆ é™¤æ“ä½œ
+				System.out.println("è¯·è¾“å…¥è¦åˆ é™¤çš„å­¦ç”Ÿå§“åï¼š");
 				String name = br.readLine();
 				boolean b = dao.deleteStudent(name);
 				if(b){
-					System.out.println("-----É¾³ı³É¹¦-------");
+					System.out.println("-----åˆ é™¤æˆåŠŸ-------");
 				}else
-					System.out.println("¶Ô²»Æğ£¡É¾³ıÊ§°Ü»òÕßÑ§Éú¸ù±¾²»´æÔÚ");
+					System.out.println("å¯¹ä¸èµ·ï¼åˆ é™¤å¤±è´¥æˆ–è€…å­¦ç”Ÿæ ¹æœ¬ä¸å­˜åœ¨");
 			}else if("c".equals(operation)){
-				//²éÑ¯²Ù×÷
-				System.out.println("ÇëÊäÈëÑ§ÉúµÄ×¼¿¼Ö¤ºÅ£º");
+				//æŸ¥è¯¢æ“ä½œ
+				System.out.println("è¯·è¾“å…¥å­¦ç”Ÿçš„å‡†è€ƒè¯å·ï¼š");
 				 String examid = br.readLine();
 				 Student s = dao.findStudent(examid);
 				 if(s==null)
-					 System.out.println("¶Ô²»Æğ£¡Äú²éÑ¯µÄÑ§Éú²»´æÔÚ");
+					 System.out.println("å¯¹ä¸èµ·ï¼æ‚¨æŸ¥è¯¢çš„å­¦ç”Ÿä¸å­˜åœ¨");
 				 else
 					 System.out.println(s);
 			}else{
-				System.out.println("ÇëÊäÈëÕıÈ·µÄ²Ù×÷ÀàĞÍ");
+				System.out.println("è¯·è¾“å…¥æ­£ç¡®çš„æ“ä½œç±»å‹");
 			}
 		}catch(Exception e){
-			System.out.println("¶Ô²»Æğ£¡·şÎñÆ÷Ã¦");
+			System.out.println("å¯¹ä¸èµ·ï¼æœåŠ¡å™¨å¿™");
 		}
 	}
 
 	private static Student addOperation(BufferedReader br) throws IOException {
-		System.out.println("ÇëÊäÈëÑ§ÉúĞÕÃû£º");
+		System.out.println("è¯·è¾“å…¥å­¦ç”Ÿå§“åï¼š");
 		String name = br.readLine();
-		System.out.println("ÇëÊäÈëÑ§ÉúµÄ×¼¿¼Ö¤ºÅ£º");
+		System.out.println("è¯·è¾“å…¥å­¦ç”Ÿçš„å‡†è€ƒè¯å·ï¼š");
 		String examid = br.readLine();
-		System.out.println("ÇëÊäÈëÑ§ÉúµÄÉí·İÖ¤ºÅ£º");
+		System.out.println("è¯·è¾“å…¥å­¦ç”Ÿçš„èº«ä»½è¯å·ï¼š");
 		String idcard = br.readLine();
-		System.out.println("ÇëÊäÈëÑ§ÉúËùÔÚµØ£º");
+		System.out.println("è¯·è¾“å…¥å­¦ç”Ÿæ‰€åœ¨åœ°ï¼š");
 		String location = br.readLine();
-		System.out.println("ÇëÊäÈëÑ§ÉúµÄ³É¼¨£º");
+		System.out.println("è¯·è¾“å…¥å­¦ç”Ÿçš„æˆç»©ï¼š");
 		String grade = br.readLine();
 		
 		Student s = new Student();

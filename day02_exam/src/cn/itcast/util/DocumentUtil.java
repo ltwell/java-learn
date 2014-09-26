@@ -1,4 +1,4 @@
-package cn.itcast.util;
+ï»¿package cn.itcast.util;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -8,8 +8,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
-//²Ù×÷XMLµÄ¹¤¾ßÀà
-//¹¤¾ßÀàÖĞµÄÒì³£¿ÉÒÔÅ×Ò²¿ÉÒÔ´¦Àí
+//æ“ä½œXMLçš„å·¥å…·ç±»
+//å·¥å…·ç±»ä¸­çš„å¼‚å¸¸å¯ä»¥æŠ›ä¹Ÿå¯ä»¥å¤„ç†
 public class DocumentUtil {
 	public static Document getDocument() throws Exception{
 		DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();

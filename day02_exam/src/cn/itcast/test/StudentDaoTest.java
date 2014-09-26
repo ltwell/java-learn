@@ -1,4 +1,4 @@
-package cn.itcast.test;
+ï»¿package cn.itcast.test;
 
 import cn.itcast.dao.IStudentDao;
 import cn.itcast.dao.StudentDao;
@@ -11,14 +11,14 @@ public class StudentDaoTest {
 //		Student s = new Student();
 //		s.setIdcard("555");
 //		s.setExamid("666");
-//		s.setName("Àî×ÚÈğ");
-//		s.setLocation("Ì¨±±");
+//		s.setName("æå®—ç‘");
+//		s.setLocation("å°åŒ—");
 //		s.setGrade(100);
 //		
 //		dao.createStudent(s);
 //		Student s = dao.findStudent("666");
 //		System.out.println(s);
-		boolean b = dao.deleteStudent("Àî×ÚÈğ");
+		boolean b = dao.deleteStudent("æå®—ç‘");
 		System.out.println(b);
 	}
 
