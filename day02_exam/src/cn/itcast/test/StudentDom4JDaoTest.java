@@ -3,8 +3,8 @@ package cn.itcast.test;
 import cn.itcast.dao.IStudentDao;
 import cn.itcast.dao.StudentDom4JDao;
 import cn.itcast.domain.Student;
-import junit.framework.Assert;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -27,7 +27,7 @@ public class StudentDom4JDaoTest {
 		s.setLocation("»’±æ");
 		s.setGrade(100);
 		boolean b = dao.createStudent(s);
-		Assert.assertTrue(b);
+        Assert.assertTrue(b);
 	}
 	@Test
 	public void testFindStudent() {
